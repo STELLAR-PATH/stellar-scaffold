@@ -10,9 +10,9 @@ import (
 
 func TestGenerator(t *testing.T) {
 	mockFS := fstest.MapFS{
-		"internal/templates/basic/Cargo.toml": {Data: []byte("workspace")},
-		"internal/templates/basic/contracts/tmpl_project_name/Cargo.toml": {Data: []byte("name = \"{{.ProjectName}}\"")},
-		"internal/templates/basic/README.md": {Data: []byte("# {{.ProjectName}}")},
+		"basic/Cargo.toml": {Data: []byte("workspace")},
+		"basic/contracts/tmpl_project_name/Cargo.toml": {Data: []byte("name = \"{{.ProjectName}}\"")},
+		"basic/README.md": {Data: []byte("# {{.ProjectName}}")},
 	}
 
 	tempDir := t.TempDir()

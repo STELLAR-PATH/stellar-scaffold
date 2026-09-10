@@ -17,7 +17,7 @@ type Generator struct {
 }
 
 func (g *Generator) Generate() error {
-	basePath := "internal/templates/" + g.Template
+	basePath := g.Template
 	
 	err := fs.WalkDir(g.TemplatesFS, basePath, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
