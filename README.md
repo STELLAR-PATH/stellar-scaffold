@@ -1,5 +1,4 @@
 # stellar-scaffold
-![CI](https://github.com/STELLAR-PATH/stellar-scaffold/workflows/CI/badge.svg)
 
 A production-grade CLI tool for scaffolding Stellar & Soroban smart contract monorepos.
 
