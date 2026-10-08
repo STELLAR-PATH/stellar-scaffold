@@ -25,15 +25,15 @@ Taking cues from ecosystem pioneers like **SoroTrail**, this engine strictly pro
 ### Go `text/template` Engine
 The core generator parses a strictly defined schema from embedded Go templates. The architecture prevents syntax errors in generated Rust code by running a localized `cargo check` validation immediately after generation.
 
-```text
-       +-------------------------------------------------------------+
-       |                  stellar-scaffold (Go CLI)                  |
-       |  * Standardized directory trees                             |
-       |  * Soroban SDK dependency pinning                           |
-       |  * Automated test harness boilerplate                       |
-       |  * Integrated GitHub Actions CI pipelines                   |
-       +-------------------------------------------------------------+
-```
+
+- `⠀⠀⠀⠀⠀⠀⠀+-------------------------------------------------------------+`
+- `⠀⠀⠀⠀⠀⠀⠀|⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀stellar-scaffold⠀(Go⠀CLI)⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|`
+- `⠀⠀⠀⠀⠀⠀⠀|⠀⠀*⠀Standardized⠀directory⠀trees⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|`
+- `⠀⠀⠀⠀⠀⠀⠀|⠀⠀*⠀Soroban⠀SDK⠀dependency⠀pinning⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|`
+- `⠀⠀⠀⠀⠀⠀⠀|⠀⠀*⠀Automated⠀test⠀harness⠀boilerplate⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|`
+- `⠀⠀⠀⠀⠀⠀⠀|⠀⠀*⠀Integrated⠀GitHub⠀Actions⠀CI⠀pipelines⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|`
+- `⠀⠀⠀⠀⠀⠀⠀+-------------------------------------------------------------+`
+
 
 ---
 
@@ -42,17 +42,17 @@ The core generator parses a strictly defined schema from embedded Go templates. 
 Ensure you have **Go 1.22+** installed on your system.
 
 ### Method A: Direct Go Install
-```bash
-go install github.com/STELLAR-PATH/stellar-scaffold@latest
-```
+
+- `go⠀install⠀github.com/STELLAR-PATH/stellar-scaffold@latest`
+
 
 ### Method B: Source Build
-```bash
-git clone https://github.com/STELLAR-PATH/stellar-scaffold.git
-cd stellar-scaffold
-go build -o stellar-scaffold main.go
-sudo mv stellar-scaffold /usr/local/bin/
-```
+
+- `git⠀clone⠀https://github.com/STELLAR-PATH/stellar-scaffold.git`
+- `cd⠀stellar-scaffold`
+- `go⠀build⠀-o⠀stellar-scaffold⠀main.go`
+- `sudo⠀mv⠀stellar-scaffold⠀/usr/local/bin/`
+
 
 ---
 
@@ -71,45 +71,45 @@ sudo mv stellar-scaffold /usr/local/bin/
 
 When `stellar-scaffold init` is invoked, it deterministically constructs the following file system layout:
 
-```text
-my-soroban-project/
-├── .github/
-│   └── workflows/
-│       └── stellarpath.yml      # Automated AST PR gatekeeper
-├── contracts/
-│   └── main_contract/
-│       ├── src/
-│       │   ├── lib.rs           # Core contract logic
-│       │   ├── storage.rs       # Secure DataKey enums
-│       │   └── test.rs          # Integration test harness
-│       └── Cargo.toml           # Pinned SDK versions
-├── Makefile                     # Build & Deployment automation
-├── .cargo/
-│   └── config.toml              # WASM optimization flags
-└── README.md
-```
+
+- `my-soroban-project/`
+- `├──⠀.github/`
+- `│⠀⠀⠀└──⠀workflows/`
+- `│⠀⠀⠀⠀⠀⠀⠀└──⠀stellarpath.yml⠀⠀⠀⠀⠀⠀#⠀Automated⠀AST⠀PR⠀gatekeeper`
+- `├──⠀contracts/`
+- `│⠀⠀⠀└──⠀main_contract/`
+- `│⠀⠀⠀⠀⠀⠀⠀├──⠀src/`
+- `│⠀⠀⠀⠀⠀⠀⠀│⠀⠀⠀├──⠀lib.rs⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀#⠀Core⠀contract⠀logic`
+- `│⠀⠀⠀⠀⠀⠀⠀│⠀⠀⠀├──⠀storage.rs⠀⠀⠀⠀⠀⠀⠀#⠀Secure⠀DataKey⠀enums`
+- `│⠀⠀⠀⠀⠀⠀⠀│⠀⠀⠀└──⠀test.rs⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀#⠀Integration⠀test⠀harness`
+- `│⠀⠀⠀⠀⠀⠀⠀└──⠀Cargo.toml⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀#⠀Pinned⠀SDK⠀versions`
+- `├──⠀Makefile⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀#⠀Build⠀&⠀Deployment⠀automation`
+- `├──⠀.cargo/`
+- `│⠀⠀⠀└──⠀config.toml⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀#⠀WASM⠀optimization⠀flags`
+- `└──⠀README.md`
+
 
 ### Generated `Cargo.toml` Pinning Matrix
 
 The generator injects strict SDK versions to guarantee network compatibility:
 
-```toml
-[dependencies]
-soroban-sdk = "20.0.0"
 
-[dev_dependencies]
-soroban-sdk = { version = "20.0.0", features = ["testutils"] }
+- `[dependencies]`
+- `soroban-sdk⠀=⠀"20.0.0"`
+- `⠀`
+- `[dev_dependencies]`
+- `soroban-sdk⠀=⠀{⠀version⠀=⠀"20.0.0",⠀features⠀=⠀["testutils"]⠀}`
+- `⠀`
+- `[profile.release]`
+- `opt-level⠀=⠀"z"`
+- `overflow-checks⠀=⠀true`
+- `debug⠀=⠀0`
+- `strip⠀=⠀"symbols"`
+- `debug-assertions⠀=⠀false`
+- `panic⠀=⠀"abort"`
+- `codegen-units⠀=⠀1`
+- `lto⠀=⠀true`
 
-[profile.release]
-opt-level = "z"
-overflow-checks = true
-debug = 0
-strip = "symbols"
-debug-assertions = false
-panic = "abort"
-codegen-units = 1
-lto = true
-```
 
 ---
 
@@ -125,12 +125,12 @@ The injected `stellarpath.yml` automatically scans PRs for `#17 panic` and `#18 
 
 A key advantage of `stellar-scaffold` is the pre-configured `Makefile` it provisions. Instead of requiring developers to manually memorize `soroban-cli` arguments, the Makefile acts as an execution facade:
 
-```bash
-make build       # Compiles WASM to target/wasm32-unknown-unknown/release/
-make test        # Runs Rust integration tests with testutils
-make deploy      # Invokes soroban contract deploy on Futurenet
-make bindings    # Generates TypeScript bindings for frontend clients
-```
+
+- `make⠀build⠀⠀⠀⠀⠀⠀⠀#⠀Compiles⠀WASM⠀to⠀target/wasm32-unknown-unknown/release/`
+- `make⠀test⠀⠀⠀⠀⠀⠀⠀⠀#⠀Runs⠀Rust⠀integration⠀tests⠀with⠀testutils`
+- `make⠀deploy⠀⠀⠀⠀⠀⠀#⠀Invokes⠀soroban⠀contract⠀deploy⠀on⠀Futurenet`
+- `make⠀bindings⠀⠀⠀⠀#⠀Generates⠀TypeScript⠀bindings⠀for⠀frontend⠀clients`
+
 
 This ensures that deploying a Soroban contract is as frictionless as standard web development workflows.
 
