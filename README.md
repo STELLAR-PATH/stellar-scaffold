@@ -26,13 +26,15 @@ Taking cues from ecosystem pioneers like **SoroTrail**, this engine strictly pro
 The core generator parses a strictly defined schema from embedded Go templates. The architecture prevents syntax errors in generated Rust code by running a localized `cargo check` validation immediately after generation.
 
 
-- `⠀⠀⠀⠀⠀⠀⠀+-------------------------------------------------------------+`
-- `⠀⠀⠀⠀⠀⠀⠀|⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀stellar-scaffold⠀(Go⠀CLI)⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|`
-- `⠀⠀⠀⠀⠀⠀⠀|⠀⠀*⠀Standardized⠀directory⠀trees⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|`
-- `⠀⠀⠀⠀⠀⠀⠀|⠀⠀*⠀Soroban⠀SDK⠀dependency⠀pinning⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|`
-- `⠀⠀⠀⠀⠀⠀⠀|⠀⠀*⠀Automated⠀test⠀harness⠀boilerplate⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|`
-- `⠀⠀⠀⠀⠀⠀⠀|⠀⠀*⠀Integrated⠀GitHub⠀Actions⠀CI⠀pipelines⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀|`
-- `⠀⠀⠀⠀⠀⠀⠀+-------------------------------------------------------------+`
+```text
+       +-------------------------------------------------------------+
+       |                  stellar-scaffold (Go CLI)                  |
+       |  * Standardized directory trees                             |
+       |  * Soroban SDK dependency pinning                           |
+       |  * Automated test harness boilerplate                       |
+       |  * Integrated GitHub Actions CI pipelines                   |
+       +-------------------------------------------------------------+
+```
 
 
 ---
