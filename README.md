@@ -1,62 +1,146 @@
 <div align="center">
 
-# `stellar-scaffold`
+```text
+███████╗████████╗███████╗██╗     ██╗      █████╗ ██████╗       ██████╗  █████╗ ████████╗██╗  ██╗
+██╔════╝╚══██╔══╝██╔════╝██║     ██║     ██╔══██╗██╔══██╗      ██╔══██╗██╔══██╗╚══██╔══╝██║  ██║
+███████╗   ██║   █████╗  ██║     ██║     ███████║██████╔╝█████╗██████╔╝███████║   ██║   ███████║
+╚════██║   ██║   ██╔══╝  ██║     ██║     ██╔══██║██╔══██╗╚════╝██╔═══╝ ██╔══██║   ██║   ██╔══██║
+███████║   ██║   ███████╗███████╗███████╗██║  ██║██║  ██║      ██║     ██║  ██║   ██║   ██║  ██║
+╚══════╝   ╚═╝   ╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝     ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝
+```
 
-**Standardized CLI Workspace Generator for Soroban Smart Contracts**
+# **stellar-scaffold**
+### Standardized CLI Workspace Generator for Soroban Smart Contracts
 
 [![Stellar Ecosystem](https://img.shields.io/badge/Stellar-Soroban-7B3FE4?style=for-the-badge&logo=stellar)](https://stellar.org)
-[![Go 1.22+](https://img.shields.io/badge/Go-1.22+-00ADD8?style=for-the-badge&logo=go)](https://golang.org)
+[![Rust 2021](https://img.shields.io/badge/Rust-2021-DEA584?style=for-the-badge&logo=rust)](https://www.rust-lang.org)
+[![Drips Stellar Wave](https://img.shields.io/badge/Drips-Stellar%20Wave%20Participant-00D395?style=for-the-badge)](https://drips.network)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
 </div>
 
-##  Overview
+---
 
-`stellar-scaffold` is a fast, deterministic scaffolding engine built in Go. It standardizes Soroban contract layouts, sets up unit test suites, and provisions ecosystem configuration boilerplate so developers can start writing business logic immediately.
+## 📖 1. Executive Summary
 
-##  Key Features
+`stellar-scaffold` is a robust, highly-deterministic scaffolding generator written in Go. Its primary directive is to eliminate configuration drift across the Soroban ecosystem by generating mathematically precise, standardized workspace topologies.
 
-- **Standardized Directory Trees**: Clean, maintainable contract folder structures aligned with Stellar best practices.
-- **Dependency Pinning**: Automatically locks Soroban SDK versions for reproducible builds.
-- **Automated Test Harness**: Generates boilerplate for Rust-based contract integration tests.
-- **CI/CD Ready**: Injects GitHub Actions workflows (including `stellarpath-action`) by default.
+Taking cues from ecosystem pioneers like **SoroTrail**, this engine strictly provisions directories, rust toolchains, Makefile automation, and integration test harnesses right out of the box, allowing developers to focus purely on contract business logic.
 
-##  Installation
+---
 
-Ensure you have Go 1.22+ installed.
+## 🏗️ 2. Core Architecture & Templating
 
+### Go `text/template` Engine
+The core generator parses a strictly defined schema from embedded Go templates. The architecture prevents syntax errors in generated Rust code by running a localized `cargo check` validation immediately after generation.
+
+```text
+       +-------------------------------------------------------------+
+       |                  stellar-scaffold (Go CLI)                  |
+       |  * Standardized directory trees                             |
+       |  * Soroban SDK dependency pinning                           |
+       |  * Automated test harness boilerplate                       |
+       |  * Integrated GitHub Actions CI pipelines                   |
+       +-------------------------------------------------------------+
+```
+
+---
+
+## 🚀 3. Installation Specifications
+
+Ensure you have **Go 1.22+** installed on your system.
+
+### Method A: Direct Go Install
 ```bash
-# Clone the repository
+go install github.com/STELLAR-PATH/stellar-scaffold@latest
+```
+
+### Method B: Source Build
+```bash
 git clone https://github.com/STELLAR-PATH/stellar-scaffold.git
 cd stellar-scaffold
-
-# Build the CLI
 go build -o stellar-scaffold main.go
-
-# (Optional) Move to your PATH
-mv stellar-scaffold ~/.local/bin/
+sudo mv stellar-scaffold /usr/local/bin/
 ```
 
-##  Usage
+---
 
-Generate a new, secure Soroban workspace in seconds:
+## ⌨️ 4. CLI Command Matrix
 
-```bash
-stellar-scaffold init my-soroban-project
-cd my-soroban-project
+| Command | Flags / Arguments | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `init` | `<PROJECT_NAME> [--no-git]` | Generates the complete Soroban workspace directory topology. | `stellar-scaffold init defi-pool` |
+| `add` | `contract <NAME>` | Injects a new secondary contract into an existing workspace. | `stellar-scaffold add contract oracle` |
+| `upgrade` | `--latest` | Bumps the Soroban SDK dependencies to the latest stable Stellar network release. | `stellar-scaffold upgrade` |
+| `ci` | `--provider [github, gitlab]`| Injects CI pipelines (including `stellarpath-action`) into the repository. | `stellar-scaffold ci --provider github` |
+
+---
+
+## 📂 5. Target Template Topology
+
+When `stellar-scaffold init` is invoked, it deterministically constructs the following file system layout:
+
+```text
+my-soroban-project/
+├── .github/
+│   └── workflows/
+│       └── stellarpath.yml      # Automated AST PR gatekeeper
+├── contracts/
+│   └── main_contract/
+│       ├── src/
+│       │   ├── lib.rs           # Core contract logic
+│       │   ├── storage.rs       # Secure DataKey enums
+│       │   └── test.rs          # Integration test harness
+│       └── Cargo.toml           # Pinned SDK versions
+├── Makefile                     # Build & Deployment automation
+├── .cargo/
+│   └── config.toml              # WASM optimization flags
+└── README.md
 ```
 
-##  Contributing & Reviewers
+### Generated `Cargo.toml` Pinning Matrix
 
-**For Contributors:**
-- Project templates are stored in the `templates/` directory as Go `text/template` files.
-- To add a new template variable, update the `ScaffoldContext` struct in `generator.go`.
-- Run `go test ./...` before submitting a PR.
+The generator injects strict SDK versions to guarantee network compatibility:
 
-**For Reviewers:**
-- Pay attention to the default versions of the Soroban SDK injected into the templates. Ensure they match the current stable Stellar network releases.
+```toml
+[dependencies]
+soroban-sdk = "20.0.0"
+
+[dev_dependencies]
+soroban-sdk = { version = "20.0.0", features = ["testutils"] }
+
+[profile.release]
+opt-level = "z"
+overflow-checks = true
+debug = 0
+strip = "symbols"
+debug-assertions = false
+panic = "abort"
+codegen-units = 1
+lto = true
+```
+
+---
+
+## 🛡️ 6. CI/CD Integration Automation
+
+By default, the scaffold injects a continuous integration pipeline utilizing `stellarpath-action`. This ensures that from day one, your repository enforces the strictest security standards.
+
+The injected `stellarpath.yml` automatically scans PRs for `#17 panic` and `#18 unwrap` errors before allowing merges to `main`.
+
+---
+
+## 🤝 7. Contributing Guidelines
+
+**Template Architecture:**
+1. All templates are located in the `internal/templates/` directory as raw embedded strings or `.tmpl` files.
+2. Template parsing relies on the `ScaffoldContext` struct defined in `pkg/generator/types.go`.
+3. To add a new parameter (e.g., `<AUTHOR_NAME>`), modify the CLI input parser to map the flag to the `ScaffoldContext`.
+
+**Testing Requirements:**
+Run `go test -v ./...` to ensure all e2e scaffolding tests pass and that generated rust code passes `cargo clippy`.
 
 ---
 <div align="center">
-  <sub>Part of the <a href="https://github.com/STELLAR-PATH">STELLAR-PATH</a> Toolchain. Built for the Soroban ecosystem.</sub>
+  <sub>Part of the <b>STELLAR-PATH</b> Toolchain. Built for the Soroban ecosystem.</sub>
 </div>
