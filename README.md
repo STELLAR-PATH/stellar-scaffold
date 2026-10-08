@@ -6,23 +6,22 @@
 
 [![Stellar Ecosystem](https://img.shields.io/badge/Stellar-Soroban-7B3FE4?style=for-the-badge&logo=stellar)](https://stellar.org)
 [![Go 1.22+](https://img.shields.io/badge/Go-1.22+-00ADD8?style=for-the-badge&logo=go)](https://golang.org)
-[![Drips Stellar Wave](https://img.shields.io/badge/Drips-Stellar%20Wave%20Participant-00D395?style=for-the-badge)](https://drips.network)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
 </div>
 
-## 📖 Overview
+##  Overview
 
 `stellar-scaffold` is a fast, deterministic scaffolding engine built in Go. It standardizes Soroban contract layouts, sets up unit test suites, and provisions ecosystem configuration boilerplate so developers can start writing business logic immediately.
 
-## ✨ Key Features
+##  Key Features
 
 - **Standardized Directory Trees**: Clean, maintainable contract folder structures aligned with Stellar best practices.
 - **Dependency Pinning**: Automatically locks Soroban SDK versions for reproducible builds.
 - **Automated Test Harness**: Generates boilerplate for Rust-based contract integration tests.
 - **CI/CD Ready**: Injects GitHub Actions workflows (including `stellarpath-action`) by default.
 
-## 🚀 Installation
+##  Installation
 
 Ensure you have Go 1.22+ installed.
 
@@ -38,7 +37,7 @@ go build -o stellar-scaffold main.go
 mv stellar-scaffold ~/.local/bin/
 ```
 
-## 🛠️ Usage
+##  Usage
 
 Generate a new, secure Soroban workspace in seconds:
 
@@ -47,7 +46,7 @@ stellar-scaffold init my-soroban-project
 cd my-soroban-project
 ```
 
-## 🤝 Contributing & Reviewers
+##  Contributing & Reviewers
 
 **For Contributors:**
 - Project templates are stored in the `templates/` directory as Go `text/template` files.
