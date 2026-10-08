@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>🏗️ <code>stellar-scaffold</code> 🏗️</h1>
+<h1><code>stellar-scaffold</code></h1>
 <h3>Standardized CLI Workspace Generator for Soroban Smart Contracts</h3>
 
 [![Stellar Ecosystem](https://img.shields.io/badge/Stellar-Soroban-7B3FE4?style=for-the-badge&logo=stellar)](https://stellar.org)
@@ -12,7 +12,7 @@
 
 ---
 
-## 📖 1. Executive Summary
+## 1. Executive Summary
 
 `stellar-scaffold` is a robust, highly-deterministic scaffolding generator written in Go. Its primary directive is to eliminate configuration drift across the Soroban ecosystem by generating mathematically precise, standardized workspace topologies.
 
@@ -20,7 +20,7 @@ Taking cues from ecosystem pioneers like **SoroTrail**, this engine strictly pro
 
 ---
 
-## 🏗️ 2. Core Architecture & Templating
+## 2. Core Architecture & Templating
 
 ### Go `text/template` Engine
 The core generator parses a strictly defined schema from embedded Go templates. The architecture prevents syntax errors in generated Rust code by running a localized `cargo check` validation immediately after generation.
@@ -37,7 +37,7 @@ The core generator parses a strictly defined schema from embedded Go templates. 
 
 ---
 
-## 🚀 3. Installation Specifications
+## 3. Installation Specifications
 
 Ensure you have **Go 1.22+** installed on your system.
 
@@ -56,7 +56,7 @@ sudo mv stellar-scaffold /usr/local/bin/
 
 ---
 
-## ⌨️ 4. CLI Command Matrix
+## 4. CLI Command Matrix
 
 | Command | Flags / Arguments | Description | Example |
 | :--- | :--- | :--- | :--- |
@@ -67,7 +67,7 @@ sudo mv stellar-scaffold /usr/local/bin/
 
 ---
 
-## 📂 5. Target Template Topology
+## 5. Target Template Topology
 
 When `stellar-scaffold init` is invoked, it deterministically constructs the following file system layout:
 
@@ -113,7 +113,7 @@ lto = true
 
 ---
 
-## 🛡️ 6. CI/CD Integration Automation
+## 6. CI/CD Integration Automation
 
 By default, the scaffold injects a continuous integration pipeline utilizing `stellarpath-action`. This ensures that from day one, your repository enforces the strictest security standards.
 
@@ -121,7 +121,7 @@ The injected `stellarpath.yml` automatically scans PRs for `#17 panic` and `#18 
 
 ---
 
-## 🤖 7. Advanced Makefile Deployment Automation
+## 7. Advanced Makefile Deployment Automation
 
 A key advantage of `stellar-scaffold` is the pre-configured `Makefile` it provisions. Instead of requiring developers to manually memorize `soroban-cli` arguments, the Makefile acts as an execution facade:
 
@@ -136,7 +136,7 @@ This ensures that deploying a Soroban contract is as frictionless as standard we
 
 ---
 
-## 📉 8. Contract Size Optimization Profiling
+## 8. Contract Size Optimization Profiling
 
 Because Soroban smart contracts have stringent size limits for mainnet deployment, `stellar-scaffold` optimizes the `.cargo/config.toml` from the start.
 
