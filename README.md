@@ -1,19 +1,11 @@
 <div align="center">
 
-```text
-███████╗████████╗███████╗██╗     ██╗      █████╗ ██████╗       ██████╗  █████╗ ████████╗██╗  ██╗
-██╔════╝╚══██╔══╝██╔════╝██║     ██║     ██╔══██╗██╔══██╗      ██╔══██╗██╔══██╗╚══██╔══╝██║  ██║
-███████╗   ██║   █████╗  ██║     ██║     ███████║██████╔╝█████╗██████╔╝███████║   ██║   ███████║
-╚════██║   ██║   ██╔══╝  ██║     ██║     ██╔══██║██╔══██╗╚════╝██╔═══╝ ██╔══██║   ██║   ██╔══██║
-███████║   ██║   ███████╗███████╗███████╗██║  ██║██║  ██║      ██║     ██║  ██║   ██║   ██║  ██║
-╚══════╝   ╚═╝   ╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝     ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝
-```
-
-# **stellar-scaffold**
-### Standardized CLI Workspace Generator for Soroban Smart Contracts
+<h1>🏗️ <code>stellar-scaffold</code> 🏗️</h1>
+<h3>Standardized CLI Workspace Generator for Soroban Smart Contracts</h3>
 
 [![Stellar Ecosystem](https://img.shields.io/badge/Stellar-Soroban-7B3FE4?style=for-the-badge&logo=stellar)](https://stellar.org)
 [![Rust 2021](https://img.shields.io/badge/Rust-2021-DEA584?style=for-the-badge&logo=rust)](https://www.rust-lang.org)
+[![Drips Stellar Wave](https://img.shields.io/badge/Drips-Stellar%20Wave%20Participant-00D395?style=for-the-badge)](https://drips.network)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
 </div>
@@ -129,15 +121,26 @@ The injected `stellarpath.yml` automatically scans PRs for `#17 panic` and `#18 
 
 ---
 
-## 🤝 7. Contributing Guidelines
+## 🤖 7. Advanced Makefile Deployment Automation
 
-**Template Architecture:**
-1. All templates are located in the `internal/templates/` directory as raw embedded strings or `.tmpl` files.
-2. Template parsing relies on the `ScaffoldContext` struct defined in `pkg/generator/types.go`.
-3. To add a new parameter (e.g., `<AUTHOR_NAME>`), modify the CLI input parser to map the flag to the `ScaffoldContext`.
+A key advantage of `stellar-scaffold` is the pre-configured `Makefile` it provisions. Instead of requiring developers to manually memorize `soroban-cli` arguments, the Makefile acts as an execution facade:
 
-**Testing Requirements:**
-Run `go test -v ./...` to ensure all e2e scaffolding tests pass and that generated rust code passes `cargo clippy`.
+```bash
+make build       # Compiles WASM to target/wasm32-unknown-unknown/release/
+make test        # Runs Rust integration tests with testutils
+make deploy      # Invokes soroban contract deploy on Futurenet
+make bindings    # Generates TypeScript bindings for frontend clients
+```
+
+This ensures that deploying a Soroban contract is as frictionless as standard web development workflows.
+
+---
+
+## 📉 8. Contract Size Optimization Profiling
+
+Because Soroban smart contracts have stringent size limits for mainnet deployment, `stellar-scaffold` optimizes the `.cargo/config.toml` from the start.
+
+It automatically disables `debug-assertions`, forces `lto = true`, and sets `codegen-units = 1` so that the resulting `.wasm` binary is drastically smaller. The generated template is specifically tuned to compile securely without inflating the WASM footprint, preventing out-of-gas deployment errors right out of the box.
 
 ---
 <div align="center">
